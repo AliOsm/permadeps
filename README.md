@@ -68,6 +68,14 @@ inherit_gem:
 
 Make sure to setup the other gems properly in your Rails application.
 
+### Generator
+
+The gem also provides a generator to install the necessary files to the Rails application:
+
+```bash
+$ rails g permadeps:install
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
