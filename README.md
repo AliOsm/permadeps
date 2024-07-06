@@ -57,7 +57,7 @@ For `rubocop` gem, use the following configuration file to inherit from `permade
 ```yml
 inherit_gem:
   permadeps:
-    - .rubocop.yml
+    - rubocop.yml
 ```
 
 #### Formatters

@@ -1,0 +1,41 @@
+require:
+  - rubocop-minitest
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rake
+  - rubocop-rspec
+  - rubocop-rspec_rails
+
+AllCops:
+  TargetRubyVersion: 3.3.3
+  NewCops: enable
+  Exclude:
+    - '**/._*'
+    - 'db/schema.rb'
+    - 'lib/tools/*'
+    - 'vendor/bundle/**/*'
+
+Layout/LineLength:
+  AllowedPatterns:
+    - !ruby/regexp /\A *# /
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
+
+Style/QuotedSymbols:
+  EnforcedStyle: single_quotes
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'method_call']
+
+Metrics/ClassLength:
+  CountAsOne: ['array', 'method_call']
