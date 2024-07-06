@@ -17,10 +17,16 @@ $ bundle add permadeps
 Adding this gem to your Rails project will provide you with the following gems:
 
 ### Production dependencies:
+- [`ahoy_matey`](https://github.com/ankane/ahoy) (Will be required)
 - [`better_html`](https://github.com/Shopify/better-html) (Will be required)
+- [`blazer`](https://github.com/ankane/blazer) (Will be required)
 - [`flamegraph`](https://github.com/SamSaffron/flamegraph) (Will be required)
 - [`freezolite`](https://github.com/ruby-next/freezolite)
+- [`geocoder`](https://github.com/alexreisner/geocoder)
 - [`memory_profiler`](https://github.com/SamSaffron/memory_profiler) (Will be required)
+- [`notable`](https://github.com/ankane/notable) (Will be required)
+- [`pghero`](https://github.com/ankane/pghero) (Will be required)
+- [`pg_query`](https://github.com/pganalyze/pg_query)
 - [`rack-mini-profiler`](https://github.com/MiniProfiler/rack-mini-profiler) (Will be required)
 - [`stackprof`](https://github.com/tmm1/stackprof) (Will be required)
 
