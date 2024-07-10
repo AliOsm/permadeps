@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "Ruby gem holds my permanent dependencies and configs I'm using in my Rails projects"
   spec.homepage = 'https://github.com/AliOsm/permadeps'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.3.3'
+  spec.required_ruby_version = '>= 3.3.4'
 
   spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'blazer', '~> 3.0', '>= 3.0.3'
   spec.add_dependency 'flamegraph', '~> 0.9.5'
   spec.add_dependency 'freezolite', '~> 0.5.0'
-  spec.add_dependency 'geocoder', '~> 1.8', '>= 1.8.2'
+  spec.add_dependency 'geocoder', '~> 1.8', '>= 1.8.3'
   spec.add_dependency 'memory_profiler', '~> 1.0', '>= 1.0.2'
   spec.add_dependency 'notable', '~> 0.5.2'
   spec.add_dependency 'pghero', '~> 3.5'
@@ -47,7 +47,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'stackprof', '~> 0.2.26'
 
   # Development dependencies:
-  spec.add_dependency 'annotaterb', '~> 4.10'
+  spec.add_dependency 'annotaterb', '~> 4.10', '>= 4.10.1'
   spec.add_dependency 'better_errors', '~> 2.10', '>= 2.10.1'
   spec.add_dependency 'binding_of_caller', '~> 1.0', '>= 1.0.1'
   spec.add_dependency 'brakeman', '~> 6.1', '>= 6.1.2'
@@ -57,7 +57,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'erb-formatter', '~> 0.7.3'
   spec.add_dependency 'erb_lint', '~> 0.5.0'
   spec.add_dependency 'i18n-tasks', '~> 1.0', '>= 1.0.14'
-  spec.add_dependency 'rubocop', '~> 1.64', '>= 1.64.1'
+  spec.add_dependency 'rubocop', '~> 1.65'
   spec.add_dependency 'rubocop-minitest', '~> 0.35.0'
   spec.add_dependency 'rubocop-performance', '~> 1.21', '>= 1.21.1'
   spec.add_dependency 'rubocop-rails', '~> 2.25', '>= 2.25.1'
