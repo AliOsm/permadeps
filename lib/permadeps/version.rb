@@ -1,3 +1,3 @@
 module Permadeps
-  VERSION = '1446.1.1'
+  VERSION = '1446.1.2'
 end
