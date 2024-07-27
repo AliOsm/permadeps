@@ -47,7 +47,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'stackprof', '~> 0.2.26'
 
   # Development dependencies:
-  spec.add_dependency 'annotaterb', '~> 4.10', '>= 4.10.1'
+  spec.add_dependency 'annotaterb', '~> 4.10', '>= 4.10.2'
   spec.add_dependency 'better_errors', '~> 2.10', '>= 2.10.1'
   spec.add_dependency 'binding_of_caller', '~> 1.0', '>= 1.0.1'
   spec.add_dependency 'brakeman', '~> 6.1', '>= 6.1.2'
