@@ -3,13 +3,42 @@ module Permadeps
     class InstallGenerator < ::Rails::Generators::Base
       source_root File.expand_path('templates', __dir__)
 
-      def copy_hook_file
+      def copy_config_files
         copy_file '.annotaterb.yml', '.annotaterb.yml'
         copy_file '.better-html.yml', '.better-html.yml'
         copy_file '.env.example', '.env.example'
         copy_file '.erb-lint.yml', '.erb-lint.yml'
         copy_file '.rubocop.yml', '.rubocop.yml'
-        copy_file 'better_html.rb', 'config/initializers/better_html.rb'
+      end
+
+      def copy_initializers
+        copy_file 'initializers/better_html.rb', 'config/initializers/better_html.rb'
+        copy_file 'initializers/blazer.rb', 'config/initializers/blazer.rb'
+        copy_file 'initializers/rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
+      end
+
+      def copy_jobs
+        copy_file 'jobs/capture_query_stats_job.rb', 'app/jobs/capture_query_stats_job.rb'
+        copy_file 'jobs/capture_space_stats_job.rb', 'app/jobs/capture_space_stats_job.rb'
+        copy_file 'jobs/clean_query_stats_job.rb', 'app/jobs/clean_query_stats_job.rb'
+        copy_file 'jobs/clean_space_stats_job.rb', 'app/jobs/clean_space_stats_job.rb'
+      end
+
+      def run_generators
+        generate 'ahoy:install'
+        generate 'blazer:install'
+        generate 'notable:requests'
+        generate 'notable:jobs'
+        generate 'pghero:query_stats'
+        generate 'pghero:space_stats'
+      end
+
+      def setup_freezolite_gem
+        insert_into_file 'config/application.rb', "\n\nrequire 'freezolite/auto'", after: "Bundler.require(*Rails.groups)"
+      end
+
+      def run_migrations
+        rails_command 'db:migrate'
       end
     end
   end
