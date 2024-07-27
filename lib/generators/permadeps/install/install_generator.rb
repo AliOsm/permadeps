@@ -24,6 +24,10 @@ module Permadeps
         copy_file 'jobs/clean_space_stats_job.rb', 'app/jobs/clean_space_stats_job.rb'
       end
 
+      def copy_tasks
+        copy_file 'tasks/annotate_rb.rake', 'lib/tasks/annotate_rb.rake'
+      end
+
       def run_generators
         generate 'ahoy:install'
         generate 'blazer:install'
