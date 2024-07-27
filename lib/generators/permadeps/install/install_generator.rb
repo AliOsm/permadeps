@@ -41,6 +41,18 @@ module Permadeps
         insert_into_file 'config/application.rb', "\n\nrequire 'freezolite/auto'", after: "Bundler.require(*Rails.groups)"
       end
 
+      def insert_engines
+        insert_into_file 'config/routes.rb', before: /^end/ do
+          <<-'RUBY'
+
+  authenticate :user, ->(user) { user.admin? } do
+    mount PgHero::Engine, at: 'rails/pghero'
+    mount Blazer::Engine, at: 'rails/blazer'
+  end
+          RUBY
+        end
+      end
+
       def run_migrations
         rails_command 'db:migrate'
       end
