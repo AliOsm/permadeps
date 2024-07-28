@@ -31,11 +31,11 @@ module Permadeps
       def run_generators
         generate 'ahoy:install'
         generate 'blazer:install'
+        generate 'good_job:install'
         generate 'notable:requests'
         generate 'notable:jobs'
         generate 'pghero:query_stats'
         generate 'pghero:space_stats'
-        generate 'good_job:install'
       end
 
       def setup_good_job # rubocop:disable Metrics/MethodLength
@@ -53,16 +53,6 @@ module Permadeps
   config.good_job.enable_cron = true
 
   config.good_job.cron = {
-    capture_query_stats: {
-      cron: '*/5 * * * *',
-      class: 'CaptureQueryStatsJob',
-      description: 'Capture PgHero query statistics every 5 minutes'
-    },
-    clean_query_stats: {
-      cron: '0 0 * * 5',
-      class: 'CleanQueryStatsJob',
-      description: 'Clean PgHero query statistics every Friday midnight'
-    },
     capture_space_stats: {
       cron: '*/5 * * * *',
       class: 'CaptureSpaceStatsJob',
@@ -72,6 +62,16 @@ module Permadeps
       cron: '0 0 * * 5',
       class: 'CleanSpaceStatsJob',
       description: 'Clean PgHero space statistics every Friday midnight'
+    },
+    capture_query_stats: {
+      cron: '*/5 * * * *',
+      class: 'CaptureQueryStatsJob',
+      description: 'Capture PgHero query statistics every 5 minutes'
+    },
+    clean_query_stats: {
+      cron: '0 0 * * 5',
+      class: 'CleanQueryStatsJob',
+      description: 'Clean PgHero query statistics every Friday midnight'
     }
   }
           RUBY
@@ -91,9 +91,9 @@ module Permadeps
           <<-RUBY
 
   authenticate :user, ->(user) { user.admin? } do
-    mount PgHero::Engine, at: 'rails/pghero'
     mount Blazer::Engine, at: 'rails/blazer'
     mount GoodJob::Engine, at: 'rails/good_job'
+    mount PgHero::Engine, at: 'rails/pghero'
   end
           RUBY
         end
