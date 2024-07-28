@@ -40,7 +40,7 @@ module Permadeps
         generate 'pghero:space_stats'
       end
 
-      def setup_good_job # rubocop:disable Metrics/MethodLength
+      def setup_good_job_gem # rubocop:disable Metrics/MethodLength
         append_to_file 'Procfile.dev', "worker: bundle exec good_job start\n"
 
         gsub_file(
@@ -86,6 +86,10 @@ module Permadeps
           "\n\nrequire 'freezolite/auto'",
           after: 'Bundler.require(*Rails.groups)'
         )
+      end
+
+      def setup_i18n_tasks_gem
+        run 'cp $(i18n-tasks gem-path)/templates/config/i18n-tasks.yml config/'
       end
 
       def insert_engines
