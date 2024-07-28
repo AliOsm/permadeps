@@ -30,6 +30,7 @@ The following gems will be automatically required:
 - [`notable`](https://github.com/ankane/notable): Automatic tracking for requests and background jobs
 - [`pghero`](https://github.com/ankane/pghero): PostgreSQL insights
 - [`rack-mini-profiler`](https://github.com/MiniProfiler/rack-mini-profiler): Profiler for Rack applications
+- [`rails_performance`](https://github.com/igorkasyanchuk/rails_performance): Self-hosted performance monitoring
 - [`stackprof`](https://github.com/tmm1/stackprof): Sampling call-stack profiler
 
 Additional production dependencies (not automatically required):
@@ -90,6 +91,7 @@ This generator will perform the following actions:
   - `config/initializers/better_html.rb`: Sets up Better HTML
   - `config/initializers/blazer.rb`: Configures Blazer
   - `config/initializers/rack_mini_profiler.rb`: Sets up Rack Mini Profiler
+  - `config/initializers/rails_performance.rb`: Sets up Rails Performance
 
 3. Add background jobs for PgHero:
   - `app/jobs/capture_query_stats_job.rb`: Captures query statistics
@@ -103,11 +105,11 @@ This generator will perform the following actions:
 5. Run generators for various gems:
   - `ahoy:install`: Sets up Ahoy for analytics
   - `blazer:install`: Installs Blazer for business intelligence
+  - `good_job:install`: Sets up GoodJob
   - `notable:requests`: Sets up Notable for request tracking
   - `notable:jobs`: Sets up Notable for job tracking
   - `pghero:query_stats`: Installs PgHero query stats
   - `pghero:space_stats`: Installs PgHero space stats
-  - `good_job:install`: Sets up GoodJob
 
 6. Set up Freezolite:
   - Adds `require 'freezolite/auto'` to `config/application.rb` for automatic string freezing

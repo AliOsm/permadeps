@@ -8,6 +8,7 @@ require 'memory_profiler'
 require 'notable'
 require 'pghero'
 require 'rack-mini-profiler'
+require 'rails_performance'
 require 'stackprof'
 
 require 'bullet' if defined?(Rails) && Rails.env.development?

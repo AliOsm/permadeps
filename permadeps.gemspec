@@ -45,6 +45,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'pghero', '~> 3.6'
   spec.add_dependency 'pg_query', '~> 5.1'
   spec.add_dependency 'rack-mini-profiler', '~> 3.3', '>= 3.3.1'
+  spec.add_dependency 'rails_performance', '~> 1.2', '>= 1.2.2'
   spec.add_dependency 'stackprof', '~> 0.2.26'
 
   # Development dependencies:

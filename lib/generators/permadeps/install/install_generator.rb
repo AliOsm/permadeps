@@ -15,6 +15,7 @@ module Permadeps
         copy_file 'initializers/better_html.rb', 'config/initializers/better_html.rb'
         copy_file 'initializers/blazer.rb', 'config/initializers/blazer.rb'
         copy_file 'initializers/rack_mini_profiler.rb', 'config/initializers/rack_mini_profiler.rb'
+        copy_file 'initializers/rails_performance.rb', 'config/initializers/rails_performance.rb'
       end
 
       def copy_jobs
@@ -94,6 +95,7 @@ module Permadeps
     mount Blazer::Engine, at: 'rails/blazer'
     mount GoodJob::Engine, at: 'rails/good_job'
     mount PgHero::Engine, at: 'rails/pghero'
+    mount RailsPerformance::Engine, at: 'rails/performance'
   end
           RUBY
         end
