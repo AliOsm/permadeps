@@ -11,4 +11,4 @@ require 'rack-mini-profiler'
 require 'rails_performance'
 require 'stackprof'
 
-require 'bullet' if defined?(Rails) && Rails.env.development?
+require 'bullet' if defined?(Rails) && Rails.env.development? && Rails.gem_version < Gem::Version.new('8.0.0.alpha')

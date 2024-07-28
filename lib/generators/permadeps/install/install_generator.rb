@@ -32,7 +32,7 @@ module Permadeps
       def run_generators
         generate 'ahoy:install'
         generate 'blazer:install'
-        generate 'bullet:install'
+        generate 'bullet:install' if Rails.gem_version < Gem::Version.new('8.0.0.alpha')
         generate 'good_job:install'
         generate 'notable:requests'
         generate 'notable:jobs'
