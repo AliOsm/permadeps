@@ -41,11 +41,11 @@ module Permadeps
       end
 
       def generate_binstubs
-        run 'bundler binstub bundler-audit'
-        run 'bundler binstub erb-formatter'
-        run 'bundler binstub erb_lint'
-        run 'bundler binstub i18n-tasks'
-        run 'bundler binstub ruby_audit'
+        run 'bundle binstub bundler-audit'
+        run 'bundle binstub erb-formatter'
+        run 'bundle binstub erb_lint'
+        run 'bundle binstub i18n-tasks'
+        run 'bundle binstub ruby_audit'
 
         remove_file 'bin/bundle-audit'
         remove_file 'bin/erb-format'
@@ -107,12 +107,13 @@ module Permadeps
         insert_into_file 'config/routes.rb', before: /^end/ do
           <<-RUBY
 
-  authenticate :user, ->(user) { user.admin? } do
-    mount Blazer::Engine, at: 'rails/blazer'
-    mount GoodJob::Engine, at: 'rails/good_job'
-    mount PgHero::Engine, at: 'rails/pghero'
-    mount RailsPerformance::Engine, at: 'rails/performance'
-  end
+  # TODO: Uncomment the following lines to mount the engines.
+  # authenticate :user, ->(user) { user.admin? } do
+  #   mount Blazer::Engine, at: 'rails/blazer'
+  #   mount GoodJob::Engine, at: 'rails/good_job'
+  #   mount PgHero::Engine, at: 'rails/pghero'
+  #   mount RailsPerformance::Engine, at: 'rails/performance'
+  # end
           RUBY
         end
       end
