@@ -39,6 +39,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'flamegraph', '~> 0.9.5'
   spec.add_dependency 'freezolite', '~> 0.5.0'
   spec.add_dependency 'geocoder', '~> 1.8', '>= 1.8.3'
+  spec.add_dependency 'good_job', '~> 4.1'
   spec.add_dependency 'memory_profiler', '~> 1.0', '>= 1.0.2'
   spec.add_dependency 'notable', '~> 0.5.2'
   spec.add_dependency 'pghero', '~> 3.6'

@@ -35,19 +35,65 @@ module Permadeps
         generate 'notable:jobs'
         generate 'pghero:query_stats'
         generate 'pghero:space_stats'
+        generate 'good_job:install'
+      end
+
+      def setup_good_job # rubocop:disable Metrics/MethodLength
+        append_to_file 'Procfile.dev', "worker: bundle exec good_job start\n"
+
+        gsub_file(
+          'config/environments/production.rb',
+          '# config.active_job.queue_adapter = :resque',
+          'config.active_job.queue_adapter = :good_job'
+        )
+
+        insert_into_file 'config/environments/production.rb', before: /^end/ do
+          <<-RUBY
+
+  config.good_job.enable_cron = true
+
+  config.good_job.cron = {
+    capture_query_stats: {
+      cron: '*/5 * * * *',
+      class: 'CaptureQueryStatsJob',
+      description: 'Capture PgHero query statistics every 5 minutes'
+    },
+    clean_query_stats: {
+      cron: '0 0 * * 5',
+      class: 'CleanQueryStatsJob',
+      description: 'Clean PgHero query statistics every Friday midnight'
+    },
+    capture_space_stats: {
+      cron: '*/5 * * * *',
+      class: 'CaptureSpaceStatsJob',
+      description: 'Capture PgHero space statistics every 5 minutes'
+    },
+    clean_space_stats: {
+      cron: '0 0 * * 5',
+      class: 'CleanSpaceStatsJob',
+      description: 'Clean PgHero space statistics every Friday midnight'
+    }
+  }
+          RUBY
+        end
       end
 
       def setup_freezolite_gem
-        insert_into_file 'config/application.rb', "\n\nrequire 'freezolite/auto'", after: "Bundler.require(*Rails.groups)"
+        insert_into_file(
+          'config/application.rb',
+          "\n\nrequire 'freezolite/auto'",
+          after: 'Bundler.require(*Rails.groups)'
+        )
       end
 
       def insert_engines
         insert_into_file 'config/routes.rb', before: /^end/ do
-          <<-'RUBY'
+          <<-RUBY
 
   authenticate :user, ->(user) { user.admin? } do
     mount PgHero::Engine, at: 'rails/pghero'
     mount Blazer::Engine, at: 'rails/blazer'
+    mount GoodJob::Engine, at: 'rails/good_job'
   end
           RUBY
         end

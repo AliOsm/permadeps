@@ -25,6 +25,7 @@ The following gems will be automatically required:
 - [`blazer`](https://github.com/ankane/blazer): Business intelligence made simple
 - [`flamegraph`](https://github.com/SamSaffron/flamegraph): Flamegraph profiler
 - [`geocoder`](https://github.com/alexreisner/geocoder): Geocoding solution
+- [`good_job`](https://github.com/bensheldon/good_job): Multithreaded, Postgres-based, Active Job backend
 - [`memory_profiler`](https://github.com/SamSaffron/memory_profiler): Memory profiling tool
 - [`notable`](https://github.com/ankane/notable): Automatic tracking for requests and background jobs
 - [`pghero`](https://github.com/ankane/pghero): PostgreSQL insights
@@ -106,6 +107,7 @@ This generator will perform the following actions:
   - `notable:jobs`: Sets up Notable for job tracking
   - `pghero:query_stats`: Installs PgHero query stats
   - `pghero:space_stats`: Installs PgHero space stats
+  - `good_job:install`: Sets up GoodJob
 
 6. Set up Freezolite:
   - Adds `require 'freezolite/auto'` to `config/application.rb` for automatic string freezing
