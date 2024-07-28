@@ -11,6 +11,7 @@ AllCops:
   NewCops: enable
   Exclude:
     - '**/._*'
+    - 'bin/*'
     - 'db/schema.rb'
     - 'lib/tools/*'
     - 'vendor/bundle/**/*'
