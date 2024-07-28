@@ -40,6 +40,17 @@ module Permadeps
         generate 'pghero:space_stats'
       end
 
+      def generate_binstubs
+        run 'bundler binstub bundler-audit'
+        run 'bundler binstub erb-formatter'
+        run 'bundler binstub erb_lint'
+        run 'bundler binstub i18n-tasks'
+        run 'bundler binstub ruby_audit'
+
+        remove_file 'bin/bundle-audit'
+        remove_file 'bin/erb-format'
+      end
+
       def setup_good_job_gem # rubocop:disable Metrics/MethodLength
         append_to_file 'Procfile.dev', "worker: bundle exec good_job start\n"
 
