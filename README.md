@@ -105,6 +105,7 @@ This generator will perform the following actions:
 5. Run generators for various gems:
     - `ahoy:install`: Sets up Ahoy for analytics
     - `blazer:install`: Installs Blazer for business intelligence
+    - `bullet:install`: Installs Bullet for N+1 query detection
     - `good_job:install`: Sets up GoodJob
     - `notable:requests`: Sets up Notable for request tracking
     - `notable:jobs`: Sets up Notable for job tracking

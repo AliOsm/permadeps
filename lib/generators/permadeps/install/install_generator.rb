@@ -32,6 +32,7 @@ module Permadeps
       def run_generators
         generate 'ahoy:install'
         generate 'blazer:install'
+        generate 'bullet:install'
         generate 'good_job:install'
         generate 'notable:requests'
         generate 'notable:jobs'
