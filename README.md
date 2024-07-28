@@ -81,41 +81,41 @@ $ rails g permadeps:install
 This generator will perform the following actions:
 
 1. Copy configuration files:
-  - `.annotaterb.yml`: Configuration for AnnotateRb
-  - `.better-html.yml`: Configuration for Better HTML
-  - `.env.example`: Example environment variables file
-  - `.erb-lint.yml`: Configuration for ERB Lint
-  - `.rubocop.yml`: Configuration for RuboCop
+    - `.annotaterb.yml`: Configuration for AnnotateRb
+    - `.better-html.yml`: Configuration for Better HTML
+    - `.env.example`: Example environment variables file
+    - `.erb-lint.yml`: Configuration for ERB Lint
+    - `.rubocop.yml`: Configuration for RuboCop
 
 2. Copy initializers:
-  - `config/initializers/better_html.rb`: Sets up Better HTML
-  - `config/initializers/blazer.rb`: Configures Blazer
-  - `config/initializers/rack_mini_profiler.rb`: Sets up Rack Mini Profiler
-  - `config/initializers/rails_performance.rb`: Sets up Rails Performance
+    - `config/initializers/better_html.rb`: Sets up Better HTML
+    - `config/initializers/blazer.rb`: Configures Blazer
+    - `config/initializers/rack_mini_profiler.rb`: Sets up Rack Mini Profiler
+    - `config/initializers/rails_performance.rb`: Sets up Rails Performance
 
 3. Add background jobs for PgHero:
-  - `app/jobs/capture_query_stats_job.rb`: Captures query statistics
-  - `app/jobs/capture_space_stats_job.rb`: Captures space usage statistics
-  - `app/jobs/clean_query_stats_job.rb`: Cleans up old query statistics
-  - `app/jobs/clean_space_stats_job.rb`: Cleans up old space usage statistics
+    - `app/jobs/capture_query_stats_job.rb`: Captures query statistics
+    - `app/jobs/capture_space_stats_job.rb`: Captures space usage statistics
+    - `app/jobs/clean_query_stats_job.rb`: Cleans up old query statistics
+    - `app/jobs/clean_space_stats_job.rb`: Cleans up old space usage statistics
 
 4. Add a rake task:
-  - `lib/tasks/annotate_rb.rake`: Task for running Annotate
+    - `lib/tasks/annotate_rb.rake`: Task for running Annotate
 
 5. Run generators for various gems:
-  - `ahoy:install`: Sets up Ahoy for analytics
-  - `blazer:install`: Installs Blazer for business intelligence
-  - `good_job:install`: Sets up GoodJob
-  - `notable:requests`: Sets up Notable for request tracking
-  - `notable:jobs`: Sets up Notable for job tracking
-  - `pghero:query_stats`: Installs PgHero query stats
-  - `pghero:space_stats`: Installs PgHero space stats
+    - `ahoy:install`: Sets up Ahoy for analytics
+    - `blazer:install`: Installs Blazer for business intelligence
+    - `good_job:install`: Sets up GoodJob
+    - `notable:requests`: Sets up Notable for request tracking
+    - `notable:jobs`: Sets up Notable for job tracking
+    - `pghero:query_stats`: Installs PgHero query stats
+    - `pghero:space_stats`: Installs PgHero space stats
 
 6. Set up Freezolite:
-  - Adds `require 'freezolite/auto'` to `config/application.rb` for automatic string freezing
+    - Adds `require 'freezolite/auto'` to `config/application.rb` for automatic string freezing
 
 7. Run database migrations:
-  - Executes `rails db:migrate` to apply all pending migrations
+    - Executes `rails db:migrate` to apply all pending migrations
 
 After running the generator, your Rails application will be configured with all the necessary settings and files to use the gems provided by permadeps. Make sure to review the generated files and adjust them as needed for your specific project requirements.
 
