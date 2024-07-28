@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    permadeps (1446.1.4)
+    permadeps (1446.1.6)
       ahoy_matey (~> 5.1)
       annotaterb (~> 4.10, >= 4.10.2)
       better_errors (~> 2.10, >= 2.10.1)
